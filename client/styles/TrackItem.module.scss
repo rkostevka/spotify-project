@@ -11,6 +11,9 @@
     font-size: 13px;
     color: gray;
   }
+  &:hover {
+    cursor: pointer;
+  }
 }
 .rightBlock {
   display: flex;
