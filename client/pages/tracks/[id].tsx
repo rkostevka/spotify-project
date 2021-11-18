@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import MainLayout from '../../layouts/MainLayout';
 import { ITrack } from '../../types/tracks';
+import styles from '../../styles/TrackItem.module.scss';
 
 const TrackPage: React.FC = () => {
 
@@ -24,7 +25,7 @@ const TrackPage: React.FC = () => {
                 onClick={() => router.push('/tracks')}>
                 Back to track list
             </Button>
-            <Grid className="trackInfo">
+            <Grid className={styles.trackInfo}>
                 <img src={track.picture} alt={track.artist} width={200} height={200}/>
                 <div>
                     <h1>{track.name}</h1>
@@ -32,22 +33,38 @@ const TrackPage: React.FC = () => {
                     <div>{track.listens}</div>
                 </div>
             </Grid>
-            <h1>Text in track</h1>
-            <p>{track.text}</p>
-            <h1>Comments</h1>
-            <Grid container>
-                <TextField
-                    label="Your name"
-                    fullWidth
-                />
-                <TextField
-                    label="Comment"
-                    fullWidth
-                    multiline
-                    rows={4}
-                />
-                <Button>Send</Button>
-            </Grid>
+            <div className="textTrack">
+                <h3>Text in track</h3>
+                <p>{track.text}</p>
+            </div>
+            <div className="commmentsBox">
+                <h1>Comments</h1>
+                <div className="commentsForm">
+                    <Grid container>
+                        <TextField
+                            label="Your name"
+                            fullWidth
+                        />
+                        <TextField
+                            label="Comment"
+                            fullWidth
+                            multiline
+                            rows={4}
+                        />
+                        <Button>Send</Button>
+                    </Grid>
+                </div>
+                <div className="comments">
+                    {track.comments.map(comment =>
+                        <div className="CommentBox">
+                            <div>User: {comment.username}</div>
+                            <div>Comment: {comment.text}</div>
+                        </div>
+                    )}
+                </div>
+            </div>
+
+
 
         </MainLayout>
     );
