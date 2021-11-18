@@ -4,6 +4,7 @@ import MainLayout from '../../layouts/MainLayout';
 import {useRouter} from "next/router";
 import TrackList from '../../components/TrackList';
 import { ITrack } from '../../types/tracks';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 const Index = () => {
     const router = useRouter();
