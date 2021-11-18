@@ -1,10 +1,43 @@
-import React from 'react';
+import {Button, Grid, TextField } from '@mui/material';
+import React, { useState } from 'react';
+import StepWrapper from '../../components/StepWrapper';
 import MainLayout from '../../layouts/MainLayout';
+import styles from '../../styles/StepWrapper.module.scss';
 
 const Create = () => {
+    const [activeStep, setActiveStep] = useState(0);
+    const next = () => {
+        if(activeStep !== 2) {
+            setActiveStep(prev => prev + 1);
+        }
+    }
+
+    const back = () => {
+        setActiveStep(prev => prev - 1);
+    }
+
     return (
         <MainLayout>
-            <h1>Download track</h1>
+            <StepWrapper activeStep={activeStep}>
+                {activeStep == 0 &&
+                    <Grid container direction={"column"}>
+                        <TextField label={"Track title"} className={styles.stepTextField}/>
+                        <TextField label={"Artist name"} className={styles.stepTextField}/>
+                        <TextField
+                            label={"Text of track"}
+                            className={styles.stepTextField}
+                            multiline
+                            rows={3}
+                        />
+                    </Grid>
+                }
+                {activeStep == 1 && <div>Step 2</div>}
+                {activeStep == 2 && <div>Step 3</div>}
+            </StepWrapper>
+            <Grid container justifyContent="space-between">
+                <Button onClick={back}>Back</Button>
+                <Button onClick={next}>Next</Button>
+            </Grid>
         </MainLayout>
     );
 };

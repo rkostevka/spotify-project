@@ -1,0 +1,11 @@
+.stepWrapper {
+  margin: 70px 0;
+  height: 270px;
+}
+.stepCard {
+  width: 600px;
+  padding: 20px;
+}
+.stepTextField:not(:last-child) {
+    margin-bottom: 10px;
+}
