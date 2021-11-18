@@ -1,0 +1,32 @@
+.player {
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  background: lightblue;
+}
+
+.playWrap {
+  display: flex;
+  flex: 4;
+  align-items: center;
+  .trackTitle {
+    flex: 1;
+  }
+  .progressAudio {
+    flex: 3;
+    display: flex;
+    input {
+      width: 90%;
+    }
+  }
+}
+
+.progressVolume {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
