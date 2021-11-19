@@ -6,7 +6,7 @@ export const playTrack = (): PlayerAction => {
 }
 
 export const pauseTrack = (): PlayerAction => {
-    return { type: PlayerActionTypes.PLAY }
+    return { type: PlayerActionTypes.PAUSE }
 }
 
 export const setDuration = (payload: number): PlayerAction => {

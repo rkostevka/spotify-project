@@ -5,7 +5,7 @@ const initialState: PlayerState = {
     active: null,
     duration: 0,
     currentTime: 0,
-    volume: 0
+    volume: 50
 }
 
 export const playerReducer = (state = initialState, action: PlayerAction): PlayerState => {
@@ -14,6 +14,7 @@ export const playerReducer = (state = initialState, action: PlayerAction): Playe
             return {...state, pause: false}
         case PlayerActionTypes.PAUSE:
             return {...state, pause: true}
+            console.log("FROM PlayerActionTypes.PAUSE" + state.pause);
         case PlayerActionTypes.SET_ACTIVE:
             return {...state, active: action.payload, duration: 0, currentTime: 0}
         case PlayerActionTypes.SET_DURATION:
