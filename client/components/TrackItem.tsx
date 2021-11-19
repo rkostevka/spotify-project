@@ -29,7 +29,7 @@ const TrackItem: React.FC<TrackItemProps> = ({track, active = false}) => {
                     : <PlayArrow/>
                 }
             </IconButton>
-            <img width={70} height={70} src={track.picture} onClick={(e) => e.stopPropagation()} />
+            <img width={70} height={70} src={'http://localhost:5000/'+ track.picture} onClick={(e) => e.stopPropagation()} />
             <Grid container direction="column" className={styles.trackTitle}>
                 <div>{track.name}</div>
                 <div className={styles.artist}>{track.artist}</div>
