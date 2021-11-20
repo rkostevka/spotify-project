@@ -17,8 +17,7 @@ const Player: React.FC = () => {
         if(!audio) {
             audio = new Audio();
         } else {
-            setAudio();
-            play();
+            active && setAudio();
         }
     }, [active])
 
@@ -37,6 +36,7 @@ const Player: React.FC = () => {
                 setCurrentTime(Math.ceil(audio.currentTime));
             }
         }
+        play();
     }
 
     const play = () => {
