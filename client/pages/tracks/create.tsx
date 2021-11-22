@@ -30,7 +30,7 @@ const Create = () => {
             formData.append('text', text.value);
             formData.append('picture', picture);
             formData.append('audio', audio);
-            console.log("activeStep : " + formData);
+            setActiveStep(prev => prev + 1);
             axios.post('http://localhost:5000/tracks', formData)
                 .then(resp => router.push('/tracks'))
                 .catch(e => console.log(e))
@@ -71,7 +71,7 @@ const Create = () => {
             </StepWrapper>
             <Grid container justifyContent="space-between">
                 <Button disabled={activeStep === 0} onClick={back}>Назад</Button>
-                <Button onClick={next}>Далее</Button>
+                <Button disabled={activeStep > 2} onClick={next}>Далее</Button>
             </Grid>
         </MainLayout>
     );
