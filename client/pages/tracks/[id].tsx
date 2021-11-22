@@ -21,7 +21,6 @@ const TrackPage: React.FC = ({serverTrack}) => {
                 text: text.value,
                 trackId: track._id
             })
-            console.log(response.data);
             setTrack({...track, comments: [...track.comments, response.data]});
         } catch (e) {
             console.log(e);
@@ -70,7 +69,7 @@ const TrackPage: React.FC = ({serverTrack}) => {
                 </div>
                 <div className="comments">
                     {track.comments.map(comment =>
-                        <div className="CommentBox">
+                        <div className="CommentBox" key={comment._id}>
                             <div>User: {comment.username}</div>
                             <div>Comment: {comment.text}</div>
                         </div>
